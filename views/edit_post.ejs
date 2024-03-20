@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.postToEdit){ %>
+<section id="<%= postToEdit.id %>">
+    <div class="container py-4">
+          <div class="p-5 mb-4 bg-body-tertiary rounded-3 mt-5">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">Edit Post</h1>
+              <form method="post" action="/edit_post">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" name="currentIdToEdit" id="postID" value="<%= postToEdit.id%>" readonly>
+                  <label for="exampleFormControlTextarea1" class="form-label">Post ID</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="fullName" placeholder="Mike Omolo" name="fullName" value="<%= postToEdit.name%>" readonly>
+                    <label for="exampleFormControlTextarea1" class="form-label">Full Name</label>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="file" class="form-control" name="profileIMG" id="inputGroupFile02">
+                  <label class="input-group-text" for="inputGroupFile02"><%= postToEdit.profileImage %></label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Subject" name="title" value="<%= postToEdit.postTitle%>">
+                  <label for="exampleFormControlTextarea1" class="form-label">Subject</label>
+              </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="yourMessage" name="message" style="height: 250px"><%= postToEdit.postDesc %></textarea>
+                    <label for="exampleFormControlTextarea1" class="form-label">What do you want to talk about?</label>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" name="postIMG" id="inputGroupFile02">
+                    <label class="input-group-text" for="inputGroupFile02"><%= postToEdit.postImage %></label>
+                  </div>
+                <button type="submit" class="btn btn-primary">Edit</button>
+              </form> 
+            </div>
+          </div>
+    </div>
+</section>
+<% } %>
+<%- include("partials/footer.ejs") %>

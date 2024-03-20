@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %>
+
+<section id="viewPost">
+    <div class="container py-4">
+          <div class="p-5 mb-4 bg-body-tertiary rounded-3 mt-5">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">View Post</h1>
+              <form>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="fullName" placeholder="Mike Omolo" readonly>
+                    <label for="exampleFormControlTextarea1" class="form-label">Full Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="yourMessage" style="height: 250px" readonly></textarea>
+                    <label for="exampleFormControlTextarea1" class="form-label">What do you want to talk about?</label>
+                </div>
+              </form> 
+            </div>
+          </div>
+    </div>
+</section>
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,18 @@
+body{
+    background-color: #f4f2ee;
+}
+.userProfilePic img{
+    width: 4%;
+}
+.userProfilePic h5{
+    padding: 10px;
+}
+.card-img-top{
+    width: 300px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+img.postIMG{
+    max-height: 300px;
+    max-width: 200px;
+}

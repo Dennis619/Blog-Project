@@ -1,0 +1,80 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.postToEdit){ %>
+<section id="<%= postToEdit.id %>">
+    <div class="container py-4">
+          <div class="p-5 mb-4 bg-body-tertiary rounded-3 mt-5">
+            <div class="container-fluid py-5">
+              <% if(locals.Header){ %>
+                <h1 class="display-5 fw-bold"><%= Header %></h1>
+                <form method="post" action="/edit_post/<%= postToEdit.id %>">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="fullName" placeholder="Mike Omolo" name="fullName" value="<%= postToEdit.name%>">
+                        <label for="exampleFormControlTextarea1" class="form-label">Full Name</label>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" name="profileImage" id="inputGroupFile02">
+                        <label class="input-group-text" for="inputGroupFile02"><%= postToEdit.profileImage %></label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Subject" name="title" value="<%= postToEdit.postTitle%>">
+                        <label for="exampleFormControlTextarea1" class="form-label">Subject</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="yourMessage" name="message" style="height: 250px"><%= postToEdit.postDesc %></textarea>
+                        <label for="exampleFormControlTextarea1" class="form-label">What do you want to talk about?</label>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" name="postImage" id="inputGroupFile02">
+                        <label class="input-group-text" for="inputGroupFile02"><%= postToEdit.postImage %></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><%= Header %></button>
+                <% } %>
+              </form> 
+            </div>
+          </div>
+    </div>
+</section>
+<% } else { %>
+    <section id="newPost">
+        <div class="container py-4">
+              <div class="p-5 mb-4 bg-body-tertiary rounded-3 mt-5">
+                <div class="container-fluid py-5">
+                    <% if(locals.Header) { %>
+                        <h1 class="display-5 fw-bold"><%= Header %></h1>
+                        <form action="/" method="post" id="createPost">
+                            <div class="form-floating mb-3">
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Mike Omolo">
+                                <label for="exampleFormControlTextarea1" class="form-label">Full Name</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" name="profileIMG" id="inputGroupFile02">
+                                <label class="input-group-text" for="inputGroupFile02">Upload Profile Picture</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Subject">
+                                <label for="exampleFormControlTextarea1" class="form-label">Subject</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" maxlength="500" name="message" onkeydown="calculateChar()" id="PostMessage" style="height: 250px"></textarea>
+                                <label for="exampleFormControlTextarea1" class="form-label">What do you want to talk about?(not more that 500 words)</label>
+                            </div>
+                            <div style="text-align: right;">
+                                <h6 style="display: inline;">Characters: </h6>
+                                <h6 id="count" style="display: inline;">0</h6>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" name="postIMG" id="inputGroupFile02">
+                                <label class="input-group-text" for="inputGroupFile02">Upload Post Image</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" formaction="/create_post"><%= Header %></button>
+                        </form> 
+                    <% }%>
+                </div>
+              </div>
+        </div>
+    </section>
+<% } %>
+<%- include("partials/footer.ejs") %>
